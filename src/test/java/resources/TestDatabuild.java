@@ -36,4 +36,7 @@ public class TestDatabuild {
         // return "{\r\n    \"place_id\":\""+placeId+"\"\r\n}";
 
     }
+    public String Updateplace(String placeid){
+        return "{\"place_id\":\""+placeid+"\",\"address\":\"70winterwalkie,USA\",\"key\":\"qaclick123\"}";
+    }
 }

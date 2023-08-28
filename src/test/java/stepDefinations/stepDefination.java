@@ -51,6 +51,9 @@ public class stepDefination extends utils {
         else if(method.equalsIgnoreCase("delete")){
             response = res.when().delete(Endpoint.getResource());
         }
+        else if(method.equalsIgnoreCase("put")){
+            response = res.when().put(Endpoint.getResource());
+        }
 
     }
     @Then("the API call got success with status code {int}")
@@ -76,6 +79,11 @@ public class stepDefination extends utils {
     @Given("Delete place payload")
     public void delete_place_payload() throws IOException {
       res = given().spec(requestspecification()).body(data.deleteplace(place_id));
+    }
+    @Given("update Place Payload")
+    public void update_place_payload() throws IOException {
+        res = given().spec(requestspecification()).body(data.Updateplace(place_id));
+
     }
 
 

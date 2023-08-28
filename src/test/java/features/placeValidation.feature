@@ -1,5 +1,5 @@
 Feature: Validating Place API's
-  @Addplace
+  @Addplace @regression
   Scenario Outline: Verify if Place is being succesfully added using AddplaceApi
     Given Add place payload with "<name>" "<language>" "<address>"
     When user calls "AddPlaceAPI" with "post" http request
@@ -13,7 +13,14 @@ Feature: Validating Place API's
       | Amit  | English  | 101, Main Cross |
       | cippy | Hindi    | 102, Jaipur     |
 
-    @DeletePlace
+
+    @UpdatePlace @regression
+    Scenario: Verify update place functionality
+      Given update Place Payload
+      When user calls "updateplaceAPI" with "PUT" http request
+      Then the API call got success with status code 200
+      And "msg" in response body is "Address successfully updated"
+    @DeletePlace @regression
     Scenario: Verify Delete place functionality
       Given Delete place payload
       When user calls "deletePlaceAPI" with "POST" http request
